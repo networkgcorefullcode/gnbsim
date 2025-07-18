@@ -12,7 +12,6 @@ import (
 	"runtime"
 
 	"github.com/omec-project/gnbsim/logger"
-	"golang.org/x/sys/unix"
 )
 
 type iphdr struct {
@@ -109,11 +108,10 @@ func BuildRawUdpIp(srcIP, dstIP string, srcPort, dstPort uint16, payload []byte)
 	var err error
 
 	ip := iphdr{
-		vhl:   0x45,
-		tos:   0,
-		off:   0,
-		ttl:   64,
-		proto: unix.IPPROTO_UDP,
+		vhl: 0x45,
+		tos: 0,
+		off: 0,
+		ttl: 64,
 	}
 	copy(ip.src[:], net.ParseIP(srcIP).To4())
 	copy(ip.dst[:], net.ParseIP(dstIP).To4())

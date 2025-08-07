@@ -12,9 +12,11 @@ RUN apt-get update && \
     ethtool && \
     apt-get clean
 
+RUN go install github.com/go-task/task/v3/cmd/task@latest
+
 WORKDIR $GOPATH/src/gnbsim
 COPY . .
-RUN make all
+RUN task build
 
 FROM alpine:3.22 AS gnbsim
 

@@ -3203,6 +3203,7 @@ func buildPDUSessionResourceSetupResponseTransfer(pduSession *PduSession,
 	teidOct := make([]byte, 4)
 	binary.BigEndian.PutUint32(teidOct, pduSession.Teid)
 	upTransportLayerInformation.GTPTunnel.GTPTEID.Value = teidOct
+	logger.AppLog.Debugf(" DEBUGIN IPV4: %d", ipv4)
 	upTransportLayerInformation.GTPTunnel.TransportLayerAddress = ngapConvert.IPAddressToNgap(ipv4, "")
 
 	// Associated QoS Flow List in QoS Flow per TNL Information

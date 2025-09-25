@@ -1,0 +1,18 @@
+# stages:
+#   - install-dependencies
+#   - build
+#   - update-version
+#   #- check_registries
+# include:
+#   - component: $CI_SERVER_FQDN/5g/cicd-components/building-main-fast-v2@main
+#     inputs:
+#       stage: build
+#       stage_helm: update-version
+#       tags: [aether-runner-3]
+#       project_id: "1268" # OnRamp
+#       nfs_name: "gnbsims"
+#     rules:
+#       - if: '$CI_COMMIT_REF_NAME == "main"'
+#         when: always
+#       - if: '$CI_COMMIT_REF_NAME == "dev"'
+#         when: always

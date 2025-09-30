@@ -11,18 +11,18 @@ info:
 
 configuration:
   runConfigProfilesAtStart: true
-  singleInterface: false #default value
+  singleInterface: true #default value
   execInParallel: false #run all profiles in parallel
   httpServer: # Serves APIs to create/control profiles on the go
     enable: false
-    ipAddr: "POD_IP"
+    ipAddr: "192.168.12.13" # your server ip
     port: 8080
   gnbs: # pool of gNodeBs
     gnb1:
-      n2IpAddr: "POD_IP" # gNB N2 interface IP address used to connect to AMF
+      n2IpAddr: "192.168.12.13" # gNB N2 interface IP address used to connect to AMF
       n2Port: 9487 # gNB N2 Port used to connect to AMF
-      n3IpAddr: 192.168.251.5 # gNB N3 interface IP address used to connect to UPF. when singleInterface mode is false
-      #n3IpAddr: "POD_IP" # when gnb is deployed in singleInterface mode
+      #n3IpAddr: 192.168.251.5 # gNB N3 interface IP address used to connect to UPF. when singleInterface mode is false
+      n3IpAddr: "192.168.12.13" # when gnb is deployed in singleInterface mode
       n3Port: 2152 # gNB N3 Port used to connect to UPF
       name: gnb1 # gNB name that uniquely identify a gNB within application
       globalRanId:
@@ -45,7 +45,7 @@ configuration:
                   sd: 000001
                 - sst: 2
       defaultAmf:
-        hostName: amf # Host name of AMF
+        hostName: 192.168.12.11 # Host name of AMF
         ipAddr: # AMF IP address
         port: 38412 # AMF port
 
@@ -53,15 +53,15 @@ configuration:
     customProfiles1:
       profileType: custom # profile type
       profileName: custom1 # uniqely identifies a profile within application
-      enable: false # Set true to execute the profile, false otherwise.
-      execInParallel: false #run all subscribers in parallel
-      stepTrigger: true #wait for trigger to move to next step
+      enable: true # Set true to execute the profile, false otherwise.
+      execInParallel: true #run all subscribers in parallel
+      stepTrigger: false #wait for trigger to move to next step
       gnbName: gnb1 # gNB to be used for this profile
       startImsi: 208930100007487
       ueCount: 5
-      defaultAs: "192.168.250.1" #default icmp pkt destination
+      defaultAs: "8.8.8.8" #default icmp pkt destination
       opc: "981d464c7c52eb6e5036234984ad0bcf"
-      key: "5122250214c33e723a5dd523fc145fc0"
+      key: "0bbf8e5965eebdc0f2c69126bf252526"
       sequenceNumber: "16f3b3f70fc2"
       retransMsg: false
       plmnId: # Public Land Mobile Network ID, <PLMN ID> = <MCC><MNC>
@@ -88,31 +88,31 @@ configuration:
   profiles: # profile information
     - profileType: register # profile type
       profileName: profile1 # uniqely identifies a profile within application
-      enable: false # Set true to execute the profile, false otherwise.
+      enable: true # Set true to execute the profile, false otherwise.
       gnbName: gnb1 # gNB to be used for this profile
       startImsi: 208930100007487
       ueCount: 5
-      defaultAs: "192.168.250.1" #default icmp pkt destination
+      defaultAs: "8.8.8.8" #default icmp pkt destination
       opc: "981d464c7c52eb6e5036234984ad0bcf"
-      key: "5122250214c33e723a5dd523fc145fc0"
+      key: "0bbf8e5965eebdc0f2c69126bf252526"
       sequenceNumber: "16f3b3f70fc2"
       dnn: "internet"
       sNssai:
         sst: 1 # Slice/Service Type (uinteger, range: 0~255)
         sd: 010203 # Slice Differentiator (3 bytes hex string, range: 000000~FFFFFF)
-      execInParallel: false #run all subscribers within profile in parallel
+      execInParallel: true #run all subscribers within profile in parallel
       plmnId: # Public Land Mobile Network ID, <PLMN ID> = <MCC><MNC>
         mcc: 208 # Mobile Country Code (3 digits string, digit: 0~9)
         mnc: 93 # Mobile Network Code (2 or 3 digits string, digit: 0~9)
     - profileType: pdusessest # profile type
       profileName: profile2 # uniqely identifies a profile within application
-      enable: false # Set true to execute the profile, false otherwise.
+      enable: true # Set true to execute the profile, false otherwise.
       gnbName: gnb1 # gNB to be used for this profile
       startImsi: 208930100007492 # First IMSI. Subsequent values will be used if ueCount is more than 1
       ueCount: 5 # Number of UEs for for which the profile will be executed
-      defaultAs: "192.168.250.1" #default icmp pkt destination
+      defaultAs: "8.8.8.8" #default icmp pkt destination
       opc: "981d464c7c52eb6e5036234984ad0bcf"
-      key: "5122250214c33e723a5dd523fc145fc0"
+      key: "0bbf8e5965eebdc0f2c69126bf252526"
       sequenceNumber: "16f3b3f70fc2"
       dnn: "internet"
       sNssai:

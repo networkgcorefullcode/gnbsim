@@ -9,3 +9,5 @@
 bin/
 
 vendor*
+gnbsim
+gnbsim.exe

@@ -45,7 +45,7 @@ configuration:
                   sd: 000001
                 - sst: 2
       defaultAmf:
-        hostName: localhost # Host name of AMF
+        hostName: 192.168.12.16 # Host name of AMF
         ipAddr: # AMF IP address
         port: 30071 # AMF port
 

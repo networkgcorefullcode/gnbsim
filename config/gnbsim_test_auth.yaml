@@ -12,7 +12,7 @@ info:
 configuration:
   runConfigProfilesAtStart: true
   singleInterface: true #default value
-  execInParallel: false #run all profiles in parallel
+  execInParallel: true #run all profiles in parallel
   httpServer: # Serves APIs to create/control profiles on the go
     enable: false
     ipAddr: "192.168.12.16" # your server ip

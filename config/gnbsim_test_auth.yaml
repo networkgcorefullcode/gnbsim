@@ -15,14 +15,14 @@ configuration:
   execInParallel: true #run all profiles in parallel
   httpServer: # Serves APIs to create/control profiles on the go
     enable: false
-    ipAddr: "localhost" # your server ip
+    ipAddr: "192.168.12.16" # your server ip
     port: 8080
   gnbs: # pool of gNodeBs
     gnb1:
-      n2IpAddr: "localhost" # gNB N2 interface IP address used to connect to AMF
+      n2IpAddr: "192.168.12.16" # gNB N2 interface IP address used to connect to AMF
       n2Port: 9487 # gNB N2 Port used to connect to AMF
       #n3IpAddr: 192.168.251.5 # gNB N3 interface IP address used to connect to UPF. when singleInterface mode is false
-      n3IpAddr: "localhost" # when gnb is deployed in singleInterface mode
+      n3IpAddr: "192.168.12.16" # when gnb is deployed in singleInterface mode
       n3Port: 2152 # gNB N3 Port used to connect to UPF
       name: gnb1 # gNB name that uniquely identify a gNB within application
       globalRanId:
@@ -45,7 +45,7 @@ configuration:
                   sd: 000001
                 - sst: 2
       defaultAmf:
-        hostName: 192.168.12.16 # Host name of AMF
+        hostName: localhost # Host name of AMF
         ipAddr: # AMF IP address
         port: 30071 # AMF port
 
